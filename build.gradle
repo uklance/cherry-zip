@@ -1,0 +1,19 @@
+apply plugin: 'java'
+
+group = 'com.lazan'
+version = '0.1-SNAPSHOT'
+
+repositories {
+	jcenter()
+	maven {
+		url 'https://dl.bintray.com/uklance/maven'
+	}
+}
+
+dependencies {
+	compile zipTree('lib/swixml_240.zip').matching {
+		include '**/swixml.jar'
+	}
+	compile 'com.lazan:tiny-ioc:0.0.3'
+	testCompile 'junit:junit:4.12'
+}
