@@ -4,16 +4,19 @@ group = 'com.lazan'
 version = '0.1-SNAPSHOT'
 
 repositories {
-	jcenter()
+	mavenCentral()
 	maven {
 		url 'https://dl.bintray.com/uklance/maven'
 	}
 }
 
+configurations {
+	swixml { transitive = false }
+}
+
 dependencies {
-	compile zipTree('lib/swixml_240.zip').matching {
-		include '**/swixml.jar'
-	}
+	swixml 'org.swixml:swixml:2.6.20130530'
 	compile 'com.lazan:tiny-ioc:0.0.3'
+	compile files(configurations.swixml.files)
 	testCompile 'junit:junit:4.12'
 }
