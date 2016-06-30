@@ -14,7 +14,7 @@ public class GridBag extends SwingEngine {
 	private GridBag() {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-			Container container = render("gridbag.xml");
+			Container container = render("jgoodies.xml");
 			Dimension sc = Toolkit.getDefaultToolkit().getScreenSize();
 			container.setVisible(true);
 		} catch (Exception e) {

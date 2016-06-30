@@ -10,13 +10,12 @@ repositories {
 	}
 }
 
-configurations {
-	swixml { transitive = false }
-}
-
 dependencies {
-	swixml 'org.swixml:swixml:2.6.20130530'
+	compile('org.swixml:swixml:2.6.20130530') {
+		exclude module: 'jnlp'
+		exclude module: 'AppleJavaExtensions'
+	}
 	compile 'com.lazan:tiny-ioc:0.0.3'
-	compile files(configurations.swixml.files)
+	compile 'com.jgoodies:forms:1.2.1'
 	testCompile 'junit:junit:4.12'
 }
