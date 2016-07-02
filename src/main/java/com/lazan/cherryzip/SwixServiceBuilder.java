@@ -4,14 +4,15 @@ import java.awt.Container;
 
 import org.swixml.SwingEngine;
 
+import com.lazan.cherryzip.swix.InjectFactory;
 import com.lazan.tinyioc.IocException;
 import com.lazan.tinyioc.ServiceBuilderContext;
 import com.lazan.tinyioc.internal.InjectionServiceBuilder;
 
-public class SwixmlServiceBuilder<T extends Container> extends InjectionServiceBuilder<T> {
+public class SwixServiceBuilder<T extends Container> extends InjectionServiceBuilder<T> {
 	private final String swixResource;
 	
-	public SwixmlServiceBuilder(Class<T> type, String swixResource) {
+	public SwixServiceBuilder(Class<T> type, String swixResource) {
 		super(type);
 		this.swixResource = swixResource;
 	}
@@ -19,8 +20,10 @@ public class SwixmlServiceBuilder<T extends Container> extends InjectionServiceB
 	@Override
 	public T build(ServiceBuilderContext<T> context) {
 		T instance = super.build(context);
-		SwingEngine<T> swix = new SwingEngine<>(instance);
 		try {
+			SwingEngine<T> swix = new SwingEngine<>(instance);
+			InjectFactory injectFactory = context.getServiceRegistry().getService(InjectFactory.class);
+			swix.getTaglib().registerTag("inject", injectFactory);
 			swix.render(swixResource);
 		} catch (Exception e) {
 			throw new IocException(e, "Error building %s", context.getServiceId());

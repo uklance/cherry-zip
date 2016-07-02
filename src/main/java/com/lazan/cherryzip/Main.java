@@ -11,7 +11,7 @@ public class Main {
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		ServiceModule[] modules = { new CherryZipModule() };
 		ServiceRegistry registry = new ServiceRegistryBuilder().withModules(modules).build();
-		MainWindow window = registry.getService(MainWindow.class);
-		window.setVisible(true);
+		MainFrame mainFrame = registry.getService(MainFrame.class);
+		mainFrame.setVisible(true);
 	}
 }
