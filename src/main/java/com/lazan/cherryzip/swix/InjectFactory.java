@@ -16,7 +16,7 @@ public class InjectFactory implements Factory {
 	@Override
 	public Object create(Object owner, Element element) throws Exception {
 		String fieldName = element.getAttribute("field");
-		if (fieldName == null) {
+		if (fieldName == null || fieldName.trim().length() == 0) {
 			throw new RuntimeException("'field' attribute must be specified for inject");
 		}
 		Field field = owner.getClass().getDeclaredField(fieldName);
