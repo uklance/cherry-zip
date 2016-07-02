@@ -1,0 +1,12 @@
+<frame 
+	name="frame" 
+	size="400,200" 
+	title="JGoodies FormLayout Sample" 
+	defaultCloseOperation="JFrame.EXIT_ON_CLOSE"
+	plaf="com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
+>
+	<splitpane>
+		<inject field="leftPanel" />
+		<inject field="rightPanel" />
+	</splitpane>
+</frame>
