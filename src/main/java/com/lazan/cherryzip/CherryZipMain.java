@@ -6,7 +6,7 @@ import com.lazan.tinyioc.ServiceModule;
 import com.lazan.tinyioc.ServiceRegistry;
 import com.lazan.tinyioc.ServiceRegistryBuilder;
 
-public class Main {
+public class CherryZipMain {
 	public static void main(String[] args) throws Exception {
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		ServiceModule[] modules = { new CherryZipModule() };

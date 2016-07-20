@@ -15,7 +15,7 @@ dependencies {
 		exclude module: 'jnlp'
 		exclude module: 'AppleJavaExtensions'
 	}
-	compile 'com.lazan:tiny-ioc:0.0.3'
+	compile 'com.lazan:tiny-ioc:0.0.6'
 	compile 'com.jgoodies:forms:1.2.1'
 	testCompile 'junit:junit:4.12'
 }
